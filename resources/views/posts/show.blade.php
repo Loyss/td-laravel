@@ -45,10 +45,26 @@
                             <strong>{{ $comment->user->name }}</strong>
                             <br>
                             {{ $comment->comment }}
+                            <br>
+                            @if(Auth::check() && (Auth::user()->id == $comment->user_id OR Auth::user()->isAdmin))
+                            <a href="{{route('comment.edit', $comment->id)}}">
+                                Modifier le commentaire
+                            </a>
+                                {!! Form::model($post,
+                                    array(
+                                    'route' => array('comment.destroy', $comment->id),
+                                    'method' => 'DELETE')
+                                    )
+                                !!}
+                                {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-sm']) !!}
+
+                                {!! Form::close() !!}
+                            @endif
+
                         </p>
                     @endforeach
                 </div>
-                @if(Auth::check() && (Auth::user()->id == $comment->user_id OR Auth::user()->isAdmin))
+                @if(Auth::check())
                 <div class="panel-body">
                     @include('comments.create', array($post))
                 </div>

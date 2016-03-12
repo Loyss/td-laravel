@@ -7,7 +7,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>Ajouter un article</h3>
+                        <h3>Modifier son commentaire</h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">
@@ -15,15 +15,19 @@
                                 {!! Form::model($post,
                                 array(
                                 'route' => array(
-                                'post.update', $post->id),
+                                'comment.update', $post->id),
                                 'method' => 'PUT')
                                 )
                                 !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('content', 'Contenu') !!}
-                            {!! Form::textarea('content', old('content'), ['class' =>'form-control', 'placeholder' => 'Contenu']) !!}
+                            <h3>{{ Auth::user()->name }}</h3>
                         </div>
+                        <div class="form-group">
+                            {!! Form::label('comment', 'Commentaire') !!}
+                            {!! Form::textarea('comment', old('comment'), ['class' =>'form-control', 'placeholder' => 'Contenu']) !!}
+                        </div>
+
                         {!! Form::submit('Editer', ['class' => 'btn btn-primary']) !!}
 
                         {!! Form::close() !!}

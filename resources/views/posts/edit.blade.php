@@ -7,7 +7,7 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>Ajouter un article</h3>
+                        <h3>Modifier l'article</h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">

@@ -70,7 +70,8 @@ class CommentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Comment::findOrFail($id);
+        return view('comments.edit', compact('post'));
     }
 
     /**
@@ -82,7 +83,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'comment' => 'required'
+        ]);
+
+        $post = Comment::findOrFail($id);
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
+
+        $post -> fill($input)->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -95,8 +106,6 @@ class CommentController extends Controller
     {
         $post = Comment::findOrFail($id);
         $post->delete();
-        return redirect()
-            ->route('post.index', $id)
-            ->with('success', 'Votre article a bien été supprimé');
+        return redirect()->back();
     }
 }
