@@ -35,6 +35,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/post', 'PostController');
     Route::resource('/comment', 'CommentController');
     Route::resource('/user', 'UserController');
+    Route::resource('/project', 'ProjectController');
 
     Route::get('/admin', function(){
         return view('errors.503');

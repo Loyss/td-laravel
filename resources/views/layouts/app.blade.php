@@ -52,7 +52,12 @@
                     @if(Auth::check())
                         <li><a href="{{ route('post.create') }}">Rédiger un article</a></li>
                     @endif
-
+                    @if(Auth::check())
+                        <li><a href="{{ route('project.create') }}">Soumettre un projet</a></li>
+                    @endif
+                    @if(Auth::check() && Auth::user()->isAdmin)
+                        <li><a href="{{ route('project.index') }}">Liste des projets</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
