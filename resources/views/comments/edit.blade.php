@@ -33,7 +33,7 @@
                         {!! Form::close() !!}
                         @else
                             <p>Vous n'avez pas les droits nécessaires...</p>
-                            <a href="{{ route('post.show', $post->id) }}">Retour à la liste d'article</a>
+                            <a href="{{ route('post.show', $comment->post_id) }}">Retour à l'article</a>
                         @endif
                     </div>
                 </div>

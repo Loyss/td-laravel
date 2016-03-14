@@ -93,7 +93,9 @@ class CommentController extends Controller
 
         $post -> fill($input)->save();
 
-        return redirect()->back();
+        return redirect()
+            ->route('post.show', [$post->post_id])
+            ->with('success', 'Votre commentaire a bien été modifié');
     }
 
     /**
