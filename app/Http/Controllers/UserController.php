@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 
@@ -30,6 +32,7 @@ class UserController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -75,17 +78,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique::user'
-        ]);
 
         $user = User::findorFail($id);
+
         $input = $request->input();
 
-        $user -> fill($input)->save();
+        $input['password'] = Hash::make($request->newPassword);
 
-        return redirect()->back();
+        $user->fill($input)->save();
+
+        return redirect()->back()->with('success', 'Votre Compte a bien été modifié');
     }
 
     /**
@@ -98,4 +100,6 @@ class UserController extends Controller
     {
         //
     }
+
+
 }

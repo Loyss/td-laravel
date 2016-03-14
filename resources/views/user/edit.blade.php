@@ -7,49 +7,44 @@
                 @include('errors.message')
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Modifier mon profil
+                        Modifier mon profil |
+                        <a href="{{ route('user.show', $user->id) }}" class="text-right">Retour à ma page profil</a>
                     </div>
                     <div class="panel-body">
-
                         {!! Form::model($user,
                         array(
-                        'route' => array('profile.update', $user->id),
+                        'route' => array('user.update', $user->id),
                         'method' => 'PUT',
-                        'class' => 'form-horizontal'
                         )) !!}
-
                         <div class="form-group">
-                            {!! Form::label('name', 'Nom', [
-                            'class' => 'col-md-4 control-label'
-                            ]) !!}
+                            {!! Form::label('name', 'Nom', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-5">
-                                {!! Form::text('name', old('name'), [
-                                'class' => 'form-control',
-                                'placeholder' => ''
-                                ])
-                            !!}
+                                {!! Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => ''])!!}
                             </div>
                         </div>
-
                         <div class="form-group">
-                            {!! Form::label('email', 'Adresse email', [
-                            'class' => 'col-md-4 control-label'
-                            ]) !!}
+                            {!! Form::label('email', 'Adresse email', ['class' => 'col-md-4 control-label']) !!}
                             <div class="col-md-5">
-                                {!! Form::text('email', old('email'), [
-                                'class' => 'form-control',
-                                'placeholder' => ''
-                                ])
-                            !!}
+                                {!! Form::text('email', old('email'), ['class' => 'form-control', 'placeholder' => ''])!!}
                             </div>
                         </div>
-
-                        <div class="text-center">
-                            {!! Form::submit('Enregistrer modifications',
-                                ['class' => 'btn btn-primary'])
-                            !!}
+                        <div class="form-group">
+                            {!! Form::label('password', 'Ancien mot de passe', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-5">
+                                {!! Form::password('old_password', ['class'=>'form-control']) !!}
+                            </div>
+                            {!! Form::label('password', 'Nouveau mot de passe', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-5">
+                                {!! Form::password('password', ['class'=>'form-control']) !!}
+                            </div>
+                            {!! Form::label('password', 'Confirmation du mot de passe', ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-5">
+                                {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
+                            </div>
                         </div>
-
+                        <div class="form-group">
+                            {!! Form::submit('Modifier', ['class' => 'btn btn-primary'])!!}
+                        </div>
                         {!! Form::close() !!}
                     </div>
                 </div>
