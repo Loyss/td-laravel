@@ -1,10 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+
 class ProjectController extends Controller
 {
     public function __construct()
@@ -63,7 +65,7 @@ class ProjectController extends Controller
         $input = $request->input();
         $input['user_id'] = Auth::user()->id;
         $project->fill($input)->save();
-        return redirect()->back()->with('success', 'Votre projet a bien été proposé');
+        return redirect()->back()->with('success', 'Votre projet a été soumis');
     }
 
     /**
