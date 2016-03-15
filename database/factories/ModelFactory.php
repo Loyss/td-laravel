@@ -36,3 +36,24 @@ $factory->define(App\Models\Comment::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Models\Project::class, function (Faker\Generator $faker) {
+    return [
+        'project_name' => $faker->name,
+        'customer_infos' => $faker->numberBetween(1, 20),
+        'customer_adress' => $faker->address,
+        'customer_email' => $faker->email,
+        'customer_numberphone' => $faker->phoneNumber,
+        'contact_infos' => $faker->sentence(1, 20),
+        'contact_adress' => $faker->address,
+        'contact_email' => $faker->email,
+        'contact_numberphone' => $faker->phoneNumber,
+        'identity_sheet' => $faker->text(),
+        'project_type' => $faker->sentence(6, 20),
+        'context' => $faker->text(),
+        'request' => $faker->text(),
+        'goals' => $faker->text(),
+        'constraints' => $faker->text(),
+        'user_id' => $faker->numberBetween(1, 20),
+        'status' => "En attente"
+    ];
+});

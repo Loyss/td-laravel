@@ -48,15 +48,27 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ route('post.index') }}">Articles</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('post.index') }}">Articles</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ route('post.create') }}">Rédiger un article</a></li>
+                            @endif
+                        </ul>
+                    </li>
                     @if(Auth::check())
-                        <li><a href="{{ route('post.create') }}">Rédiger un article</a></li>
-                    @endif
-                    @if(Auth::check())
-                        <li><a href="{{ route('project.create') }}">Soumettre un projet</a></li>
-                    @endif
-                    @if(Auth::check() && Auth::user()->isAdmin)
-                        <li><a href="{{ route('project.index') }}">Liste des projets</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projets<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('project.create') }}">Soumettre un projet</a></li>
+                                @if(Auth::user()->isAdmin)
+                                    <li><a href="{{ route('project.index') }}">Liste des projets</a></li>
+                                @endif
+                            </ul>
+                        </li>
                     @endif
                 </ul>
 
