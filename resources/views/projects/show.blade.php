@@ -52,6 +52,7 @@
                         <a href="{{ route('project.index') }}">Retour à la liste des projets</a>
                     </div>
                 </div>
+                @include('projects.edit')
             </div>
         </div>
     </div>
