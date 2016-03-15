@@ -70,6 +70,7 @@
                             </ul>
                         </li>
                     @endif
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
