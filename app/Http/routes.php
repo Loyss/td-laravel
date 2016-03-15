@@ -37,6 +37,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/user', 'UserController');
     Route::resource('/project', 'ProjectController');
 
+    Route::get('/contact', function(){
+        return view('contact');
+    });
+
     Route::get('/admin', function(){
         return view('errors.503');
     })->middleware('isadmin');
