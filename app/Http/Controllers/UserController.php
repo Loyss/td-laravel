@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 
@@ -78,7 +78,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $user = User::findorFail($id);
 
         $input = $request->input();

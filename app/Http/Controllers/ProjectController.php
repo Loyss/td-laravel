@@ -100,7 +100,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -111,6 +111,10 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+        $project->delete();
+
+        return redirect()->route('project.index')->with('success', 'Votre projet a été supprimé');
     }
 }
