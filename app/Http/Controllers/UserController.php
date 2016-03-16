@@ -89,6 +89,7 @@ class UserController extends Controller
         return redirect()->back()->with('success', 'Votre Compte a bien été modifié');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -97,7 +98,14 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return view('home');
+    }
+
+    public function password($id)
+    {
+
     }
 
 }

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    @if(Auth::check() && (Auth::user()->id == $user->id OR Auth::user()->isAdmin))
+        <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @include('errors.message')
@@ -51,4 +52,11 @@
             </div>
         </div>
     </div>
+    @else
+        <div class="container">
+            <h3 class="text-center">Vous n'avez pas les droits nécessaires...</h3>
+            <a href="{{ route('user.show', Auth::user()->id) }}" class="btn btn-primary">Retour à mon profil</a>
+        </div>
+
+    @endif
 @endsection

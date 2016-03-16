@@ -1,7 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container">
+    @if(Auth::check() && (Auth::user()->id == $user->id OR Auth::user()->isAdmin))
+        <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
@@ -21,9 +21,16 @@
                         </div>
                         <div class="col-xs-8 col-xs-offset-4">
                             <br>
-                            @if(Auth::check() && (Auth::user()->id == $user->id OR Auth::user()->isAdmin))
                             <a href="{{route('user.edit', $user->id)}}" type="button" class="btn btn-info btn-md">Editer mon profil</a>
-                            @endif
+                            {!! Form::model($user,
+                                array(
+                                'route' => array('user.destroy', $user->id),
+                                'method' => 'DELETE')
+                                )
+                            !!}
+                            {!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-md']) !!}
+                            {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>
@@ -32,4 +39,11 @@
     </div>
     @include('user.showPosts')
     @include('user.showProjects')
+    @else
+        <div class="container">
+            <h3 class="text-center">Vous n'avez pas les droits nécessaires...</h3>
+            <a href="{{ route('user.show', Auth::user()->id) }}" class="btn btn-primary">Retour à mon profil</a>
+        </div>
+
+    @endif
 @endsection
