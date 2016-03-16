@@ -11,7 +11,7 @@ class UpdateProjectsTable extends Migration
     public function up()
     {
         Schema::table('projects', function(Blueprint $table) {
-            $table->string('status')->default("En attente d\'une réponse")->change();
+            $table->string('status')->default("En attente d'une réponse")->change();
         });
     }
     /**

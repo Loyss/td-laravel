@@ -11,6 +11,7 @@
                         <a href="{{route('post.show', $post->id)}}">
                             <h3>{{ $post->title }}</h3>
                         </a>
+                        <h4 class="text-right">{{$post->created_at}}</h4>
                     </div>
                     <div class="panel-body">
                         <br>

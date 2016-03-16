@@ -8,6 +8,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3>{{ $project->project_name }}</h3>
+                        <h4 class="text-right">{{$project->status}}</h4>
                     </div>
                     <div class="panel-body">
                         <h3>Informations du client</h3>
@@ -52,7 +53,9 @@
                         <a href="{{ route('project.index') }}">Retour à la liste des projets</a>
                     </div>
                 </div>
-                @include('projects.edit')
+                @if(Auth::check() && Auth::user()->isAdmin)
+                    @include('projects.adminEdit')
+                @endif
             </div>
         </div>
     </div>

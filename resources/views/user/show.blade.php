@@ -44,6 +44,5 @@
             <h3 class="text-center">Vous n'avez pas les droits nécessaires...</h3>
             <a href="{{ route('user.show', Auth::user()->id) }}" class="btn btn-primary">Retour à mon profil</a>
         </div>
-
     @endif
 @endsection

@@ -9,7 +9,9 @@
                             <a href="{{route('project.show', $project->id)}}">
                                 <h4>{{ $project->project_name}}</h4>
                             </a>
+                            <h5 class="text-right">{{$project->status}}</h5>
                         </div>
+                        <a href="{{ route('project.edit', $project->id) }}">Modifier son projet</a>
                         <hr>
                     @endforeach
                 </div>
