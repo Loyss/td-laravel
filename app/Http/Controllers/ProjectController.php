@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $list = Project::paginate(10);
+        $list = Project::paginate(5);
         return view('projects.index', compact('list'));
     }
 

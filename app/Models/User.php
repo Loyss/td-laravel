@@ -28,10 +28,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Post');
     }
 
-    public function user()
+    public function projects()
     {
         return $this->hasMany('App\Models\Project');
     }
-
-
 }

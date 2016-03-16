@@ -31,4 +31,5 @@
         </div>
     </div>
     @include('user.showPosts')
+    @include('user.showProjects')
 @endsection
