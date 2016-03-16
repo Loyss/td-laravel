@@ -37,7 +37,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        Mail::send('contact.contact',
+        \Mail::send('contact.contact',
             array(
                 'name' => $request->get('name'),
                 'email' => $request->get('email'),
