@@ -31,6 +31,5 @@
             </div>
             {!! Form::close() !!}
         </div>
-        <a href="{{ route('project.index') }}">Retour à la liste des projets</a>
     </div>
 </div>

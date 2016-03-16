@@ -12,10 +12,13 @@
                     </div>
 
                     <div class="panel-body">
-                        {!! Form::open(array(
-                        'route' => 'project.store',
-                        'method' => 'POST'
-                        )) !!}
+                        {!! Form::model($project,
+                        array(
+                        'route' => array(
+                        'project.update', $project->id),
+                        'method' => 'PUT')
+                        )
+                        !!}
 
                         <div class="form-group">
                             {!! Form::label('project_name', 'Nom du projet') !!}

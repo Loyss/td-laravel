@@ -12,7 +12,7 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only('create');
-        $this->middleware('isadmin')->only('index', 'show', 'edit', 'destroy');
+        //$this->middleware('isadmin')->only('index', 'show', 'edit', 'destroy');
     }
 
     /**
@@ -101,9 +101,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'status' => 'required'
-        ]);
 
         $project = Project::findOrFail($id);
         $input = $request->input();
