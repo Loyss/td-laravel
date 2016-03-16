@@ -37,9 +37,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/user', 'UserController');
     Route::resource('/project', 'ProjectController');
 
-    Route::get('/contact', function(){
-        return view('contact');
-    });
+
+    Route::get('contact',
+        ['as' => 'contact', 'uses' => 'ContactController@create']);
+    Route::post('contact',
+        ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
     Route::get('/admin', function(){
         return view('errors.503');
