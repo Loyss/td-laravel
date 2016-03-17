@@ -36,6 +36,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/comment', 'CommentController');
     Route::resource('/user', 'UserController');
     Route::resource('/project', 'ProjectController');
+    Route::resource('/password', 'PasswordController');
 
 
     Route::get('contact',

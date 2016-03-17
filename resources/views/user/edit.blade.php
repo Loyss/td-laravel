@@ -30,23 +30,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            {!! Form::label('password', 'Ancien mot de passe', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-5">
-                                {!! Form::password('old_password', ['class'=>'form-control']) !!}
-                            </div>
-                            {!! Form::label('password', 'Nouveau mot de passe', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-5">
-                                {!! Form::password('password', ['class'=>'form-control']) !!}
-                            </div>
-                            {!! Form::label('password', 'Confirmation du mot de passe', ['class' => 'col-md-4 control-label']) !!}
-                            <div class="col-md-5">
-                                {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
-                            </div>
-                        </div>
-                        <div class="form-group">
                             {!! Form::submit('Modifier', ['class' => 'btn btn-primary'])!!}
                         </div>
                         {!! Form::close() !!}
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="{{route('password.edit', Auth::user()->id)}}" type="button" class="btn btn-info btn-md">Modifier son mot de passe</a>
                     </div>
                 </div>
             </div>

@@ -82,11 +82,9 @@ class UserController extends Controller
 
         $input = $request->input();
 
-        $input['password'] = Hash::make($request->password);
-
         $user->fill($input)->save();
 
-        return redirect()->back()->with('success', 'Votre Compte a bien été modifié');
+        return redirect()->back()->with('success', 'Votre mot de passe a bien été modifié');
     }
 
 
@@ -101,11 +99,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return view('home');
-    }
-
-    public function password($id)
-    {
-
     }
 
 }
