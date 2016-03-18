@@ -39,6 +39,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-4 control-label">Facebook</label>
+                            <div class="col-md-6">
+                                {{--<a href="{{route('auth/facebook')}}" class="btn btn-info" role="button">Login with Facebook</a>--}}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>

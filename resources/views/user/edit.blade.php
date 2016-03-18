@@ -2,7 +2,7 @@
 
 @section('content')
     @if(Auth::check() && (Auth::user()->id == $user->id OR Auth::user()->isAdmin))
-        <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 @include('errors.message')

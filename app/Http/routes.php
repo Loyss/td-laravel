@@ -44,6 +44,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('contact',
         ['as' => 'contact_store', 'uses' => 'ContactController@store']);
 
+    Route::get('auth/facebook', 'AuthController@redirectToProvider');
+    Route::get('auth/facebook/callback', 'AuthController@handleProviderCallback');
+
     Route::get('/admin', function(){
         return view('errors.503');
     })->middleware('isadmin');
